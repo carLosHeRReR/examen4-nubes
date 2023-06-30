@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #video-fondo-login-register {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop id="video-fondo-login-register">
+        <source src="/videos/background.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <label for="gmail">Email:</label>
+            <% if (error) { %><p class="error-message"><%= error %></p><% } %>
+            <input type="email" id="gmail" name="gmail" required>
+            <label for="password">Contraseña:</label>
+            <% if (error) { %><p class="error-message"><%= error %></p><% } %>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Iniciar sesión</button>
+            <p><a href="/forgot-password">Recuperar contraseña</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
