@@ -90,10 +90,11 @@
 
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
-
+            <div class="g-recaptcha" data-sitekey="<%= siteKey %>"></div>
             <button type="submit">Registrar</button>
         </form>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
